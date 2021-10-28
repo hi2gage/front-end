@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [data, setData] = React.useState(null);
+  const [value, onChange] = useState('10:00');
+
+  React.useEffect(() => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <body class="bg-gray-200 bg-h-min text-center min-h-screen">
+
+      <div class="flex h-screen ">
+        <div class="m-auto text-grey-1000 font-">
+          <h3>{data}</h3>
+        </div>
+      </div>
+    </body>
+    
   );
 }
 
