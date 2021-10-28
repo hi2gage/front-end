@@ -7,7 +7,7 @@ function App() {
   const [value, onChange] = useState('10:00');
 
   React.useEffect(() => {
-    fetch("/api")
+    fetch("https://csci-331-snow-project.herokuapp.com/api")
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }, []);
