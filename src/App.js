@@ -5,19 +5,17 @@ import './App.css';
 function App() {
     const [data, setData] = React.useState(null);
 
-    React.useEffect(() => {
-        fetch('https://csci-331-snow-project.herokuapp.com/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(credentials)
-        })
-            .then(returnedData => {
-                setData(returnedData)
-
+    const getFromApi = () => {
+        axios.get('https://csci-331-snow-project.herokuapp.com/apidb')
+            .then(response => {
+                // console.log(JSON.stringify(response.data, null, " "));
+                const info = response.data;
+                setData(info);
             })
-    }, []);
+            .catch(error => console.error(error));
+    }
+
+    useEffect(() => getFromApi(), []);
 
     return (
         <div>
