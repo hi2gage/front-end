@@ -25,7 +25,7 @@ function App() {
             <h2>test</h2>
             <h3>{data[0].snow}</h3>
             <h2>test</h2>
-            <button onClick={getFromApi()}> this is a button</button>
+            {/* <button onClick={getFromApi()}> this is a button</button> */}
         </div>
     );
 }
