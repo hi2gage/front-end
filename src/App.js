@@ -1,34 +1,57 @@
-import React from 'react'
-import './App.css';
-import axios from 'axios';
+import "./App.css";
+
+import React from 'react';
+import Navbar from './components/Navbar/Navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Products from './pages/Products';
+import LogIn from './pages/LogIn';
+import Api_Test_Unstyled from "./pages/Api_Test_Unstyled";
+import SignUp from "./pages/SignUp";
 
 
-
+function getToken() {
+    const tokenString = sessionStorage.getItem('token');
+    const userToken = JSON.parse(tokenString);
+    return userToken?.token
+}
 
 function App() {
+    const token = getToken();
     const [data, setData] = React.useState(null);
 
     React.useEffect(() => {
-        axios.get('https://csci-331-snow-project.herokuapp.com/apidb')
-            .then(response => {
-                console.log(JSON.stringify(response.data, null, " "));
-                const info = response.data;
-                setData(info);
-            })
-            .catch(error => console.error(error));
-    }, []);
-
-
-    if (!data) return null;
+        fetch("/apidb")
+            .then((res) => res.json())
+            .then((data) => setData(data.message))
+            .then(console.log(data));
+    }, [data]);
 
     return (
-        <div>
-            <h2>test start</h2>
-            <h3>{data[0].hr}</h3>
-            <h3>{data[0].min}</h3>
-            <h3>{data[0].snow}</h3>
-            <h2>test end</h2>
-        </div>
+        <>
+            <Router>
+                <Navbar userStatus={(token)} />
+                <Switch>
+                    <Route path='/' exact component={Home} />
+                    <Route path='/services' component={Services} />
+                    <Route path='/products' component={Products} />
+                    <Route path='/login' component={LogIn} />
+                    
+                    {/* Allowing access to api Page */}
+                    {token ?
+                        (<Route path='/api' component={Api_Test_Unstyled} />) : (null)}
+
+                    
+                    <Route
+                        path='/sign-up'
+                        render={() => (
+                            <SignUp tok={"true"} />
+                        )
+                    } />
+                </Switch>
+            </Router>
+        </>
     );
 }
 
