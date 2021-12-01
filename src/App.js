@@ -9,15 +9,13 @@ function App() {
     const [data, setData] = React.useState(null);
 
     React.useEffect(() => {
-        getFromApi = () => {
-            axios.get('https://csci-331-snow-project.herokuapp.com/apidb')
-                .then(response => {
-                    console.log(JSON.stringify(response.data, null, " "));
-                    const info = response.data;
-                    setData(info);
-                })
-                .catch(error => console.error(error));
-        }
+        axios.get('https://csci-331-snow-project.herokuapp.com/apidb')
+            .then(response => {
+                console.log(JSON.stringify(response.data, null, " "));
+                const info = response.data;
+                setData(info);
+            })
+            .catch(error => console.error(error));
     }, []);
 
 
