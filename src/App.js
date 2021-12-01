@@ -7,8 +7,7 @@ function App() {
 
   React.useEffect(() => {
     fetch("https://csci-331-snow-project.herokuapp.com/api")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then(setData(res.rows));
   }, []);
 
   return (
