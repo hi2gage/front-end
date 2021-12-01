@@ -1,24 +1,24 @@
 import React from 'react'
 import './App.css';
 import axios from 'axios';
-import { useEffect } from 'react'
+
 
 
 
 function App() {
     const [data, setData] = React.useState(null);
 
-    const getFromApi = () => {
-        axios.get('https://csci-331-snow-project.herokuapp.com/apidb')
-            .then(response => {
-                // console.log(JSON.stringify(response.data, null, " "));
-                const info = response.data;
-                setData(info);
-            })
-            .catch(error => console.error(error));
-    }
+    // const getFromApi = () => {
+    //     axios.get('https://csci-331-snow-project.herokuapp.com/apidb')
+    //         .then(response => {
+    //             // console.log(JSON.stringify(response.data, null, " "));
+    //             const info = response.data;
+    //             setData(info);
+    //         })
+    //         .catch(error => console.error(error));
+    // }
 
-    useEffect(() => getFromApi(), []);
+    // React.useEffect(() => getFromApi(), []);
 
     return (
         <div>
