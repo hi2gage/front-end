@@ -1,4 +1,4 @@
- html {
+html {
     height: 100%;
 }
 
@@ -51,16 +51,14 @@ display: grid;
     justify-content: center;
 }
 
-
 .resetDiv {
     display: flex;
     justify-content: center;
 }
 
-
 .timePickerDiv {
     padding-left: 20%;
     padding-right: 20%;
     padding-top: 10%;
-    /* opacity: 80%; */
-} 
+    opacity: 80%;
+}
