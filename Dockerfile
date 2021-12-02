@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:latest AS builder
 
 WORKDIR /opt/web
 COPY package.json package-lock.json ./
