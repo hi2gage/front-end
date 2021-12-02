@@ -1,4 +1,4 @@
-html {
+ html {
     height: 100%;
 }
 
@@ -15,7 +15,7 @@ body {
 }
 
 .timePickerPage {
-    /* background-image: url("https://wallpaperaccess.com/full/959907.jpg"); */
+    background-image: url("https://wallpaperaccess.com/full/959907.jpg");
     height: 100%;
     background-size: cover;
 }
@@ -51,14 +51,16 @@ display: grid;
     justify-content: center;
 }
 
+
 .resetDiv {
     display: flex;
     justify-content: center;
 }
 
+
 .timePickerDiv {
     padding-left: 20%;
     padding-right: 20%;
     padding-top: 10%;
-    opacity: 80%;
-}
+    /* opacity: 80%; */
+} 
