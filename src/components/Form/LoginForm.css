@@ -40,6 +40,7 @@ input, button {
     bottom: -5px;
     z-index: 1;
     background-image: linear-gradient(to bottom right, rgb(0, 183, 255), gray);
+    height: 100%;
 }
 
 #loginform .form-inner{
