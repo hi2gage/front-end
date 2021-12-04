@@ -16,7 +16,7 @@ import "./SignUpForm.css"
 const theme = createTheme();
 
 async function loginUser(info) {
-    return fetch('/register', {
+    return fetch('https://csci-331-snow-project.herokuapp.com/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

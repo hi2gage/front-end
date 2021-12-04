@@ -22,7 +22,7 @@ const theme = createTheme();
 // https://csci-331-snow-project.herokuapp.com
 async function loginUser(credentials) {
     console.log(credentials)
-    return fetch('/login', {
+    return fetch('https://csci-331-snow-project.herokuapp.com/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
