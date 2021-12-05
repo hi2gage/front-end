@@ -14,7 +14,7 @@ function Api_Test() {
     const getFromApi = () => {
         const deployURL = 'https://csci-331-snow-project.herokuapp.com/apidb'
         const localURL = '/apidb'
-        axios.get(localURL)
+        axios.get(deployURL)
             .then(response => {
                 const info = response.data;
                 setData(info);

@@ -18,7 +18,7 @@ const theme = createTheme();
 async function loginUser(info) {
     const deployURL = 'https://csci-331-snow-project.herokuapp.com/register'
     const localURL = '/register'
-    return fetch(localURL, {
+    return fetch(deployURL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

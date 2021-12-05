@@ -24,7 +24,7 @@ async function loginUser(credentials) {
     console.log(credentials)
     const deployURL ='https://csci-331-snow-project.herokuapp.com/login'
     const localURL = '/login'
-    return fetch(localURL, {
+    return fetch(deployURL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
