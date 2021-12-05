@@ -65,8 +65,8 @@ function LoginForm({ Login, error, setToken }) {
         const token = loginUser(userInfo);
         token.then((response) => {
             setToken(response);
-            history.push("/api");
-            window.location.reload(false);
+            // history.push("/api");
+            // window.location.reload(false);
             console.log(userInfo);
         })
 
