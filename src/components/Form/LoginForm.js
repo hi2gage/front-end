@@ -22,7 +22,7 @@ const theme = createTheme();
 // https://csci-331-snow-project.herokuapp.com
 async function loginUser(credentials) {
     console.log(credentials)
-    const deployURL ='https://csci-331-snow-project.herokuapp.com/login'
+    const deployURL = 'https://csci-331-snow-project.herokuapp.com/login'
     const localURL = '/login'
     return fetch(deployURL, {
         method: 'POST',
@@ -64,10 +64,14 @@ function LoginForm({ Login, error, setToken }) {
         }
         const token = loginUser(userInfo);
         token.then((response) => {
-            setToken(response);
-            history.push("/api");
-            window.location.reload(false);
-            console.log(userInfo);
+            if (response.token == "test123") {
+                setToken(response);
+
+                history.push("/api");
+                window.location.reload(false);
+                console.log(userInfo);
+            }
+
         })
 
 
