@@ -45,8 +45,8 @@ export default function SignUpForm() {
             password: data.get('password'),
         }
         loginUser(userInfo)
-        history.push("/login");
-        window.location.reload(false);
+        // history.push("/login");
+        // window.location.reload(false);
 
 
         console.log(userInfo);
